@@ -175,5 +175,5 @@ document.getElementById('btn_calc').addEventListener('click', function() {
         inputWindow.style = "font-size: 16px;";
     }
     lastNum = '';
-    console.log(eval(inputWindow.value));
+    // console.log(eval(inputWindow.value));
 })
