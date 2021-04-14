@@ -13,3 +13,7 @@
 .card{
     background-color: #343a40;
 }
+
+.btn-primary.disabled, .btn-primary:disabled{
+    color: white;
+}
