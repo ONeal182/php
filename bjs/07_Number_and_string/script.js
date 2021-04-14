@@ -63,6 +63,15 @@ document.getElementById('btn_share').addEventListener('click', function () {
     operation = 'share';
     inputWindow.value = '';
 })
+document.getElementById('btn_sqrt').addEventListener('click', function () {
+    lastOperand = parseInt(inputWindow.value);
+    operation = 'sqrt';
+    inputWindow.value = '';
+    const result = Math.sqrt(lastOperand);
+    operation = null;
+    lastOperand = 0;
+    inputWindow.value = result;
+})
 document.getElementById('btn_calc').addEventListener('click', function () {
     if(operation === 'sum'){
         const result = lastOperand + parseInt(inputWindow.value);
@@ -82,10 +91,5 @@ document.getElementById('btn_calc').addEventListener('click', function () {
         lastOperand = 0;
         inputWindow.value = result;
     }
-    if(operation === 'share'){
-        const result = lastOperand / parseInt(inputWindow.value);
-        operation = null;
-        lastOperand = 0;
-        inputWindow.value = result;
-    }
+
 })
