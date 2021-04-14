@@ -141,10 +141,9 @@ document.getElementById('btn_sqrt').addEventListener('click', function() {
     inputWindow.value = result;
 })
 document.getElementById('btn_calc').addEventListener('click', function() {
-    console.log(lastOperand);
+
     if (operation === 'sum') {
         const operand = String(inputWindow.value);
-        console.log(inputWindow.value);
         const result = lastOperand + parseInt(lastNum);
         operation = null;
         lastOperand = 0;
@@ -176,4 +175,5 @@ document.getElementById('btn_calc').addEventListener('click', function() {
         inputWindow.style = "font-size: 16px;";
     }
     lastNum = '';
+    console.log(eval(inputWindow.value));
 })
