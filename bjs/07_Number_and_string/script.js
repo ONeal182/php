@@ -8,49 +8,80 @@ const num = document.querySelectorAll('.num');
 
 
 document.getElementById('btn_clr').addEventListener('click', function () {
+    inputWindow.style = "";
     lastOperand = 0;
     operation = null;
-    inputWindow.value = '';
+    inputWindow.value = 0;
     num.forEach(num => num.removeAttribute("disabled"))
 })
 
 document.getElementById('btn_1').addEventListener('click', function () {
+    if(inputWindow.value == 0){
+        inputWindow.value = '';
+    }
     inputWindow.value += '1';
     lastNum = this.value;
 })
 document.getElementById('btn_2').addEventListener('click', function () {
+    if(inputWindow.value == 0){
+        inputWindow.value = '';
+    }
     inputWindow.value += '2';
     lastNum = this.value;
 })
 document.getElementById('btn_3').addEventListener('click', function () {
+    if(inputWindow.value == 0){
+        inputWindow.value = '';
+    }
     inputWindow.value += '3';
     lastNum = this.value;
 })
 document.getElementById('btn_4').addEventListener('click', function () {
+    if(inputWindow.value == 0){
+        inputWindow.value = '';
+    }
     inputWindow.value += '4';
     lastNum = this.value;
 })
 document.getElementById('btn_5').addEventListener('click', function () {
+    if(inputWindow.value == 0){
+        inputWindow.value = '';
+    }
     inputWindow.value += '5';
     lastNum = this.value;
 })
 document.getElementById('btn_6').addEventListener('click', function () {
+    if(inputWindow.value == 0){
+        inputWindow.value = '';
+    }
     inputWindow.value += '6';
     lastNum = this.value;
 })
 document.getElementById('btn_7').addEventListener('click', function () {
+    if(inputWindow.value == 0){
+        inputWindow.value = '';
+    }
     inputWindow.value += '7';
     lastNum = this.value;
 })
 document.getElementById('btn_8').addEventListener('click', function () {
+    if(inputWindow.value == 0){
+        inputWindow.value = '';
+    }
     inputWindow.value += '8';
     lastNum = this.value;
 })
 document.getElementById('btn_9').addEventListener('click', function () {
+    if(inputWindow.value == 0){
+        inputWindow.value = '';
+    }
     inputWindow.value += '9';
     lastNum = this.value;
 })
 document.getElementById('btn_0').addEventListener('click', function () {
+    if(inputWindow.value == 0){
+        inputWindow.value = '';
+    }
     inputWindow.value += '0';
     lastNum = this.value;
 })
@@ -118,6 +149,9 @@ document.getElementById('btn_calc').addEventListener('click', function () {
         lastOperand = 0;
         inputWindow.value = operand + '=' + result;
     }
-    num.forEach(num => num.setAttribute("disabled", "disabled"))
+    num.forEach(num => num.setAttribute("disabled", "disabled"));
+    if(inputWindow.value.length >22){
+        inputWindow.style = "font-size: 16px;";
+    }
 
 })
