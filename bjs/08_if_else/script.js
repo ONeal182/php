@@ -24,7 +24,7 @@ function changeText(){
     
 }
 
-
+//Функцию взял с одно из своих старх проектов, задача уже была такая
 function intToWords(int, names) {
 	var result = [];
 	if (typeof int === 'number') {
@@ -117,17 +117,6 @@ function intToWords(int, names) {
 	return result.join(' ');
 }
 
-document.getElementById('btnRetry').addEventListener('click', function () {
-    minValue = firstMinValue;
-    maxValue = firstMaxValue;
-    orderNumber = 1;
-    answerNumber = Math.floor((minValue + maxValue) / 2);
-    answerField.innerText = `Вы загадали число ${answerNumber }?`;
-    orderNumberField.innerText = orderNumber;
-    gameRun = true;
-    answerField.classList.remove('successBtn');
-    answerField.classList.remove('errorBtn');
-})
 
 function randomText(max){
     const phraseRandom = Math.round( Math.random() * max);
@@ -144,6 +133,20 @@ function randomTextSuccess(max){
     `Вот текст` : (phraseRandom === 2) ? 'Ещё один текст' : 'И ещё один текст';
     return answerPhrase;
 }
+
+document.getElementById('btnRetry').addEventListener('click', function () {
+    minValue = firstMinValue;
+    maxValue = firstMaxValue;
+    orderNumber = 1;
+    answerNumber = Math.floor((minValue + maxValue) / 2);
+    answerField.innerText = `Вы загадали число ${answerNumber }?`;
+    orderNumberField.innerText = orderNumber;
+    gameRun = true;
+    answerField.classList.remove('successBtn');
+    answerField.classList.remove('errorBtn');
+})
+
+
 document.getElementById('btnOver').addEventListener('click', function () {
     if (gameRun){
         if (minValue === maxValue){
