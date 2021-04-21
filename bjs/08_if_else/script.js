@@ -2,6 +2,8 @@ let minValue = parseInt(prompt('Минимальное знание числа �
 minValue = (isNaN(minValue)) ? parseInt(0) : minValue;
 let maxValue = parseInt(prompt('Максимальное знание числа для игры','100'));
 maxValue = (isNaN(maxValue)) ? parseInt(100) : maxValue;
+maxValue = (maxValue > 100) ? 100 : maxValue;
+minValue = (minValue < 0) ? 0 : minValue;
 let firstMaxValue = maxValue;
 let firstMinValue = minValue;
 // alert(`Загадайте любое целое число от ${minValue} до ${maxValue}, а я его угадаю`);
