@@ -37,7 +37,7 @@ function changeText() {
 
 //Функцию взял с одно из своих старх проектов, задача уже была такая
 function intToWords(int, names) {
-	var result = [];
+	let result = [];
 	if (typeof int === 'number') {
 		int = int.toString();
 	} else if (typeof int !== 'string') {
@@ -47,30 +47,30 @@ function intToWords(int, names) {
 		names = null;
 	}
 	if (int.length && !/[^0-9]/.test(int)) {
-		var selectName = function (number, names) {
+		let selectName = function (number, names) {
 			return names[((parseInt(number) % 100 > 4) && (parseInt(number) % 100 < 20)) ? 2 : [2, 0, 1, 1, 1, 2][Math.min(parseInt(number) % 10, 5)]];
 		};
-		var name = null;
-		var zero = 'ноль';
+		let name = null;
+		let zero = 'ноль';
 		if (int === '0') {
 			result.push(zero);
 		} else {
-			var from0To2 = [zero, 'одна', 'две'];
-			var from0To19 = [
+			let from0To2 = [zero, 'одна', 'две'];
+			let from0To19 = [
 				zero, 'один', 'два', 'три', 'четыре',
 				'пять', 'шесть', 'семь', 'восемь', 'девять',
 				'десять', 'одиннадцать', 'двенадцать', 'тринадцать', 'четырнадцать',
 				'пятнадцать', 'шестнадцать', 'семнадцать', 'восемнадцать', 'девятнадцать'
 			];
-			var tens = [
+			let tens = [
 				'десять', 'двадцать', 'тридцать', 'сорок', 'пятьдесят',
 				'шестьдесят', 'семьдесят', 'восемьдесят', 'девяносто'
 			];
-			var hundreds = [
+			let hundreds = [
 				'сто', 'двести', 'триста', 'четыреста', 'пятьсот',
 				'шестьсот', 'семьсот', 'восемьсот', 'девятьсот'
 			];
-			var thousands = [
+			let thousands = [
 				['тысяча', 'тысячи', 'тысяч'],
 				['миллион', 'миллиона', 'миллионов'],
 				['миллиард', 'миллиарда', 'миллиардов'],
@@ -83,20 +83,20 @@ function intToWords(int, names) {
 				['нониллион', 'нониллиона', 'нониллионов'],
 				['дециллион', 'дециллиона', 'дециллионов']
 			];
-			var unknown = '{неизвестно}';
-			var numberParts = int.replace(/(?=(\d{3})+(?!\d))/g, ' ').split(' ');
-			var i = numberParts.length - 1;
-			for (var j in numberParts) {
-				var numberPart = parseInt(numberParts[j]);
+			let unknown = '{неизвестно}';
+			let numberParts = int.replace(/(?=(\d{3})+(?!\d))/g, ' ').split(' ');
+			let i = numberParts.length - 1;
+			for (let j in numberParts) {
+				let numberPart = parseInt(numberParts[j]);
 				if (numberPart) {
-					var numberPartResult = [];
-					var hundred = Math.floor(numberPart / 100);
+					let numberPartResult = [];
+					let hundred = Math.floor(numberPart / 100);
 					if (hundred) {
 						numberPartResult.push(hundreds[hundred - 1]);
 						numberPart -= hundred * 100;
 					}
 					if (numberPart > 19) {
-						var ten = Math.floor(numberPart / 10);
+						let ten = Math.floor(numberPart / 10);
 						numberPartResult.push(tens[ten - 1]);
 						numberPart -= ten * 10;
 					}
