@@ -9,6 +9,7 @@ const orderNumberField = document.getElementById('orderNumberField');
 const answerField = document.getElementById('answerField');
 orderNumberField.innerText = orderNumber;
 answerField.innerText = `Вы загадали число ${answerNumber}?`;
+
 function restart() {
 	minValue = parseInt(prompt('Минимальное знание числа для игры', '0'));
 	minValue = (isNaN(minValue)) ? parseInt(0) : minValue;
@@ -24,13 +25,7 @@ function restart() {
 	orderNumberField.innerText = orderNumber;
 	answerField.innerText = `Вы загадали число ${answerNumber}?`;
 	// alert(`Загадайте любое целое число от ${minValue} до ${maxValue}, а я его угадаю`);
-	
-
 }
-
-
-
-
 
 function changeText() {
 	let text = `Вы загадали число ${answerNumber}?`;
@@ -133,7 +128,6 @@ function intToWords(int, names) {
 	return result.join(' ');
 }
 
-
 function randomText(max) {
 	const phraseRandom = Math.round(Math.random() * max);
 	const answerPhrase = (phraseRandom === 0) ?
@@ -162,7 +156,6 @@ document.getElementById('btnRetry').addEventListener('click', function () {
 	answerField.classList.remove('successBtn');
 	answerField.classList.remove('errorBtn');
 })
-
 
 document.getElementById('btnOver').addEventListener('click', function () {
 	if (gameRun) {
