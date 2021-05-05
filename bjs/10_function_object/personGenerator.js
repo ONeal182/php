@@ -35,36 +35,82 @@ const personGenerator = {
             "id_10": "Андрей"
         }
     }`,
-
-    GENDER_MALE: 'Мужчина',
-    GENDER_FEMALE: 'Женщина',
+    firstNamefemaleJson: `{
+        "count": 10,
+        "list": {     
+            "id_1": "Александра",
+            "id_2": "Елена",
+            "id_3": "Ирина",
+            "id_4": "Виолетта",
+            "id_5": "Дарья",
+            "id_6": "Ксения",
+            "id_7": "Евгения",
+            "id_8": "Александра",
+            "id_9": "Екатерина",
+            "id_10": "Юля"
+        }
+    }`,
+    genderJson: `{
+        "count": 2,
+        "list": {
+            "id_1": "Мужчина",
+            "id_2": "Женщина"
+        }
+    }`,
 
     randomIntNumber: (max = 1, min = 0) => Math.floor(Math.random() * (max - min + 1) + min),
 
-    randomValue: function (json) {
+    randomValue: function(json) {
         const obj = JSON.parse(json);
-        const prop = `id_${this.randomIntNumber(obj.count, 1)}`;  // this = personGenerator
+        const prop = `id_${this.randomIntNumber(obj.count, 1)}`; // this = personGenerator
         return obj.list[prop];
     },
 
-    randomFirstName: function() {
+    randomGender: function() {
 
-        return this.randomValue(this.firstNameMaleJson);
+        return this.randomValue(this.genderJson);
+
+    },
+
+    randomFirstName: function(firstName) {
+        return this.randomValue(firstName);
 
     },
 
 
-     randomSurname: function() {
+    randomSurname: function() {
 
         return this.randomValue(this.surnameJson);
 
     },
+    randomDate: function() {
+        function getRandomArbitrary(min, max) {
+            return Math.random() * (max - min) + min;
+        }
+        var date1 = date1 || '01-01-1970'
+        var date2 = date2 || new Date().toLocaleDateString()
+        date1 = new Date(date1).getTime()
+        date2 = new Date(date2).getTime()
+        if (date1 > date2) {
+            return new Date(getRandomArbitrary(date2, date1)).toLocaleDateString()
+        } else {
+            return new Date(getRandomArbitrary(date1, date2)).toLocaleDateString()
+
+        }
+    },
 
 
-    getPerson: function () {
+    getPerson: function() {
         this.person = {};
-        // this.person.gender = this.randomGender();
-        this.person.firstName = this.randomFirstName();
+        this.person.gender = this.randomGender();
+        if (this.person.gender == 'Мужчина') {
+            this.person.firstName = this.randomFirstName(this.firstNameMaleJson);
+        } else {
+            this.person.firstName = this.randomFirstName(this.firstNamefemaleJson);
+        }
+
+        this.person.surnameName = this.randomSurname();
+        this.person.randomDate = this.randomDate();
         return this.person;
     }
 };
