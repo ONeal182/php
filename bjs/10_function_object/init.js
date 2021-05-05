@@ -1,5 +1,4 @@
 window.onload = function() {
-    let initPerson = personGenerator.getPerson();
     const runGenElement = document.getElementById("runGen");
     const clearGenElement = document.getElementById("clearGen");
 
