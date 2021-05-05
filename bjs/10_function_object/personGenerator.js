@@ -20,6 +20,20 @@ const personGenerator = {
             "id_16": "Морозов"
         }
     }`,
+
+    middleName: `{
+        "count": 8,
+        "list": {
+            "id_1": "Александров",
+            "id_2": "Констонтинов",
+            "id_3": "Алексеев",
+            "id_4": "Владимиров",
+            "id_5": "Петров",
+            "id_6": "Михайлов",
+            "id_7": "Степанов",
+            "id_8": "Федоров"
+        }
+    }`,
     firstNameMaleJson: `{
         "count": 10,
         "list": {     
@@ -57,6 +71,36 @@ const personGenerator = {
             "id_2": "Женщина"
         }
     }`,
+    professionFemaleJson: `{
+        "count": 10,
+        "list": {
+            "id_1": "Врач",
+            "id_2": "Менеджер",
+            "id_3": "Дизайнер",
+            "id_4": "Швея",
+            "id_5": "Горничная",
+            "id_6": "Косметолог",
+            "id_7": "Визажист",
+            "id_8": "Водитель трамвая",
+            "id_9": "Кассир",
+            "id_10": "Повар"
+        }
+    }`,
+    professionMaleJson: `{
+        "count": 10,
+        "list": {
+            "id_1": "Пожарный",
+            "id_2": "Военный",
+            "id_3": "Полицейский",
+            "id_4": "Строитель",
+            "id_5": "Мастер",
+            "id_6": "Слесарь",
+            "id_7": "Сварщик",
+            "id_8": "Водитель маршутки",
+            "id_9": "Оператор ТУ",
+            "id_10": "Механик Водитель БМП"
+        }
+    }`,
 
     randomIntNumber: (max = 1, min = 0) => Math.floor(Math.random() * (max - min + 1) + min),
 
@@ -65,22 +109,9 @@ const personGenerator = {
         const prop = `id_${this.randomIntNumber(obj.count, 1)}`; // this = personGenerator
         return obj.list[prop];
     },
+    randomJson: function(objJson) {
 
-    randomGender: function() {
-
-        return this.randomValue(this.genderJson);
-
-    },
-
-    randomFirstName: function(firstName) {
-        return this.randomValue(firstName);
-
-    },
-
-
-    randomSurname: function() {
-
-        return this.randomValue(this.surnameJson);
+        return this.randomValue(objJson);
 
     },
     randomDate: function() {
@@ -102,14 +133,17 @@ const personGenerator = {
 
     getPerson: function() {
         this.person = {};
-        this.person.gender = this.randomGender();
+        this.person.gender = this.randomJson(this.genderJson);
         if (this.person.gender == 'Мужчина') {
-            this.person.firstName = this.randomFirstName(this.firstNameMaleJson);
+            this.person.firstName = this.randomJson(this.firstNameMaleJson);
+            this.person.profession = this.randomJson(this.professionMaleJson);
         } else {
-            this.person.firstName = this.randomFirstName(this.firstNamefemaleJson);
-        }
+            this.person.firstName = this.randomJson(this.firstNamefemaleJson);
+            this.person.profession = this.randomJson(this.professionFemaleJson);
 
-        this.person.surnameName = this.randomSurname();
+        }
+        this.person.middleName = this.randomJson(this.middleName);
+        this.person.surnameName = this.randomJson(this.surnameJson);
         this.person.randomDate = this.randomDate();
         return this.person;
     }
