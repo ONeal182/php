@@ -109,11 +109,13 @@ const personGenerator = {
         const prop = `id_${this.randomIntNumber(obj.count, 1)}`; // this = personGenerator
         return obj.list[prop];
     },
+
     randomJson: function(objJson) {
 
         return this.randomValue(objJson);
 
     },
+
     randomDate: function() {
         function getRandomArbitrary(min, max) {
             return Math.random() * (max - min) + min;
@@ -137,7 +139,6 @@ const personGenerator = {
 
         }
     },
-
 
     getPerson: function() {
         this.person = {};
